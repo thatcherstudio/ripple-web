@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripple - Your Personalized Reddit Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .app-store-badge {
+            display: inline-block;
+            margin: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .app-store-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .privacy-section {
+            background: #e8f5e8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+
+        .privacy-section h3 {
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .oauth-callback {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            color: #155724;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌊 Ripple</div>
+            <div class="tagline">Your Personalized Reddit Experience</div>
+        </div>
+
+        <div class="card">
+            <h2>Discover Reddit Like Never Before</h2>
+            <p>Ripple intelligently curates Reddit content just for you. Get personalized summaries of the most relevant posts from your favorite subreddits, delivered 3-4 times daily with AI-powered insights.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Summaries</h3>
+                <p>Get concise, intelligent summaries of Reddit posts so you can quickly understand what matters most.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Smart Notifications</h3>
+                <p>Receive curated content at optimal times throughout your day, never missing the conversations that matter.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Personalized Feed</h3>
+                <p>Machine learning adapts to your preferences, showing you content from subreddits and topics you love.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔗</div>
+                <h3>Seamless Integration</h3>
+                <p>Tap any post to open it directly in your favorite Reddit app for full discussions and interactions.</p>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h2>Coming Soon to the App Store</h2>
+            <p>Ripple is currently in development. Sign up to be notified when it's available!</p>
+            <a href="#" class="app-store-badge">📱 Get Notified</a>
+        </div>
+
+        <div class="card privacy-section">
+            <h3>🔒 Privacy First</h3>
+            <ul>
+                <li>✅ No data collection - all processing happens on your device</li>
+                <li>✅ Secure OAuth authentication with Reddit</li>
+                <li>✅ Your Reddit credentials never leave your device</li>
+                <li>✅ All content summaries generated locally</li>
+                <li>✅ COPPA compliant - safe for all ages</li>
+            </ul>
+        </div>
+
+        <!-- OAuth Callback Section (Hidden by default) -->
+        <div id="oauth-callback" class="card oauth-callback">
+            <h2>✅ Authentication Successful!</h2>
+            <p>You can now return to the Ripple app.</p>
+            <div class="loading" style="margin-top: 1rem;"></div>
+            <p style="margin-top: 0.5rem;">Redirecting back to app...</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Ripple. Made with ❤️ for Reddit enthusiasts.</p>
+            <p><a href="mailto:support@rippleapp.com" style="color: white;">Contact Support</a> | 
+               <a href="#privacy" style="color: white;">Privacy Policy</a> | 
+               <a href="#terms" style="color: white;">Terms of Service</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Check if this is an OAuth callback
+        function handleOAuthCallback() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const state = urlParams.get('state');
+            const error = urlParams.get('error');
+
+            if (code || error) {
+                // This is an OAuth callback
+                document.querySelector('.header').style.display = 'none';
+                document.querySelectorAll('.card:not(.oauth-callback)').forEach(el => el.style.display = 'none');
+                document.querySelector('.features').style.display = 'none';
+                document.querySelector('.download-section').style.display = 'none';
+                document.getElementById('oauth-callback').style.display = 'block';
+
+                if (error) {
+                    document.getElementById('oauth-callback').innerHTML = `
+                        <h2>❌ Authentication Failed</h2>
+                        <p>There was an error during authentication: ${error}</p>
+                        <p>Please try again from the Ripple app.</p>
+                    `;
+                } else {
+                    // Success - try to redirect back to app
+                    setTimeout(() => {
+                        const customScheme = 'ripple://auth/callback?code=' + encodeURIComponent(code) + '&state=' + encodeURIComponent(state || '');
+                        window.location.href = customScheme;
+                        
+                        // Fallback: show success message if custom scheme doesn't work
+                        setTimeout(() => {
+                            document.getElementById('oauth-callback').innerHTML = `
+                                <h2>✅ Authentication Successful!</h2>
+                                <p>Please return to the Ripple app to continue.</p>
+                                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                                    If the app didn't open automatically, please open Ripple manually.
+                                </p>
+                            `;
+                        }, 2000);
+                    }, 1500);
+                }
+            }
+        }
+
+        // Handle OAuth callback on page load
+        document.addEventListener('DOMContentLoaded', handleOAuthCallback);
+
+        // Handle "Get Notified" button
+        document.querySelector('.app-store-badge').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Thanks for your interest! We\'ll notify you when Ripple is available on the App Store.');
+        });
+
+        // Smooth scroll for footer links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
